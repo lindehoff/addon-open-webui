@@ -1,5 +1,22 @@
 # Changelog
 
+# [1.18.0](https://github.com/lindehoff/addon-open-webui/compare/v1.17.0...v1.18.0) (2025-03-04)
+
+
+### Features
+
+* enhance Open WebUI add-on configuration 🎉 ([aaf04a8](https://github.com/lindehoff/addon-open-webui/commit/aaf04a87b6bdc372f5192b07278e68c05d812330))
+
+  - Added detailed usage instructions to the README.md for better user guidance.
+
+  - Introduced new configuration options for `port` and `openai_api_key` in config.yaml.
+
+  - Updated the `ingress_port` and `watchdog` settings to use the configured `port`.
+
+  - Ensured compatibility with existing services by allowing port customization.
+
+  This update improves the overall usability and flexibility of the Open WebUI add-on for Home Assistant. 🚀
+
 # [1.17.0](https://github.com/lindehoff/addon-open-webui/compare/v1.16.0...v1.17.0) (2025-03-03)
 
 
