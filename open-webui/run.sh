@@ -24,5 +24,15 @@ done < <(
     )'
 )
 
+# Normalize port environment variable for upstream Open WebUI
+# Many upstream scripts expect PORT/WEBUI_PORT/OPEN_WEBUI_PORT rather than lowercase 'port'
+if [ -n "${port:-}" ]; then
+    # Do not override if already provided via env_vars
+    if [ -z "${PORT:-}" ]; then export PORT="$port"; fi
+    if [ -z "${WEBUI_PORT:-}" ]; then export WEBUI_PORT="$port"; fi
+    if [ -z "${OPEN_WEBUI_PORT:-}" ]; then export OPEN_WEBUI_PORT="$port"; fi
+    echo "Using port: ${PORT:-${WEBUI_PORT:-${OPEN_WEBUI_PORT:-$port}}}"
+fi
+
 cd /app/backend
 exec ./start.sh
