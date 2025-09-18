@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.40.1](https://github.com/lindehoff/addon-open-webui/compare/v1.40.0...v1.40.1) (2025-09-18)
+
+
+### Bug Fixes
+
+* **open-webui:** respect configured port by exporting PORT/WEBUI_PORT/OPEN_WEBUI_PORT ([ab22547](https://github.com/lindehoff/addon-open-webui/commit/ab22547c32b3fda3ed72d9e481915f68b1b90ce8))
+
+  - Map add-on 'port' to common upstream env vars if unset
+
+  - Prevents binding to 8080 when 'port' is changed
+
+  - Update README to document mapping and precedence
+
 # [1.40.0](https://github.com/lindehoff/addon-open-webui/compare/v1.39.0...v1.40.0) (2025-09-18)
 
 
