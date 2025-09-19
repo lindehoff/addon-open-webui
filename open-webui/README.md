@@ -9,14 +9,14 @@ This add-on provides [Open WebUI](https://openwebui.com) for Home Assistant, an 
 The port that Open WebUI will use. Default is `8080`.
 If you have another service using port 8080, you can change this to any available port.
 
-Notes:
-- The add-on maps this option to upstream environment variables expected by Open WebUI (`PORT`, `WEBUI_PORT`, `OPEN_WEBUI_PORT`).
-- If you explicitly set any of these variables in `env_vars`, your explicit value will take precedence over the `port` option.
-
-Example configuration:
+Important:
+- To ensure Open WebUI binds to your chosen port, set both the add-on `port` option and the `PORT` environment variable to the same value.
+- Example configuration that binds to port 8084:
 ```yaml
-port: 8098
+port: 8084
 env_vars:
+  - name: PORT
+    value: "8084"
   - name: OLLAMA_BASE_URL
     value: http://192.168.1.100:11434
 ```
