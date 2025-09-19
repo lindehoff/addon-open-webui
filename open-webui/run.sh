@@ -26,12 +26,15 @@ done < <(
 
 # Normalize port environment variable for upstream Open WebUI
 # Many upstream scripts expect PORT/WEBUI_PORT/OPEN_WEBUI_PORT rather than lowercase 'port'
+# If the user explicitly set PORT via env_vars, honor that; otherwise, force PORT to match the add-on 'port'.
+user_defined_port_env="$({ < "$INPUT_FILE" jq -r '.env_vars[]? | select(.name == "PORT") | .value' || true; } | head -n 1)"
 if [ -n "${port:-}" ]; then
-    # Do not override if already provided via env_vars
-    if [ -z "${PORT:-}" ]; then export PORT="$port"; fi
-    if [ -z "${WEBUI_PORT:-}" ]; then export WEBUI_PORT="$port"; fi
-    if [ -z "${OPEN_WEBUI_PORT:-}" ]; then export OPEN_WEBUI_PORT="$port"; fi
-    echo "Using port: ${PORT:-${WEBUI_PORT:-${OPEN_WEBUI_PORT:-$port}}}"
+    if [ -z "$user_defined_port_env" ]; then
+        export PORT="$port"
+    fi
+    export WEBUI_PORT="${WEBUI_PORT:-$port}"
+    export OPEN_WEBUI_PORT="${OPEN_WEBUI_PORT:-$port}"
+    echo "Using port: ${PORT} (WEBUI_PORT=${WEBUI_PORT}, OPEN_WEBUI_PORT=${OPEN_WEBUI_PORT})"
 fi
 
 cd /app/backend
