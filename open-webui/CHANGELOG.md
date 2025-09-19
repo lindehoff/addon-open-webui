@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.40.2](https://github.com/lindehoff/addon-open-webui/compare/v1.40.1...v1.40.2) (2025-09-19)
+
+
+### Bug Fixes
+
+* **open-webui:** set PORT to addon 'port' unless overridden in env_vars ([2bd7eaa](https://github.com/lindehoff/addon-open-webui/commit/2bd7eaa4f1d304f95277cbc14d39844607263aad))
+
+  - Ensures consistent binding without requiring users to duplicate config
+
+  - Keep WEBUI_PORT and OPEN_WEBUI_PORT in sync for compatibility
+
 ## [1.40.1](https://github.com/lindehoff/addon-open-webui/compare/v1.40.0...v1.40.1) (2025-09-18)
 
 
