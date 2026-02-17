@@ -1,5 +1,5 @@
 build_from:
   # renovate: datasource=github-releases depName=open-webui/open-webui
-  aarch64: ghcr.io/open-webui/open-webui:v0.8.1
+  aarch64: ghcr.io/open-webui/open-webui:v0.8.2
   # renovate: datasource=github-releases depName=open-webui/open-webui
-  amd64: ghcr.io/open-webui/open-webui:v0.8.1
+  amd64: ghcr.io/open-webui/open-webui:v0.8.2
