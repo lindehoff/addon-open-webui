@@ -28,6 +28,6 @@ jobs:
           npm install -g @semantic-release/git
           
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v4
+        uses: cycjimmy/semantic-release-action@v6.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
